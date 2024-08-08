@@ -1,0 +1,1061 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../registers/">
+      
+      
+        <link rel="next" href="../resets/">
+      
+      
+      <link rel="icon" href="../../assets/CElogo.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>Clock Domains - Hardware Documentation Template</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../../css/print-site.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#clock-domains" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Hardware Documentation Template" class="md-header__button md-logo" aria-label="Hardware Documentation Template" data-md-component="logo">
+      
+  <img src="../../assets/CElogo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hardware Documentation Template
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Clock Domains
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenCEHardware/RTL-Hardware-Documentation-Template" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OpenCEHardware/RTL-Hardware-Documentation-Template
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../revisions/" class="md-tabs__link">
+          
+  
+  Block Name
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Hardware Documentation Template" class="md-nav__button md-logo" aria-label="Hardware Documentation Template" data-md-component="logo">
+      
+  <img src="../../assets/CElogo.png" alt="logo">
+
+    </a>
+    Hardware Documentation Template
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenCEHardware/RTL-Hardware-Documentation-Template" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OpenCEHardware/RTL-Hardware-Documentation-Template
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Block Name
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Block Name
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revisions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Revisions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conventions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Document Conventions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagram/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Block Diagram
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protocols/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protocols
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../memory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Clock Domains
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Clock Domains
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clock-domain-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clock Domain Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annotated-block-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Annotated Block Diagram
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reset Domains
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interrupts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interrupts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arbitration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arbitration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../synthesis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synthesis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../verification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Verification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_16" id="__nav_2_16_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Microarchitecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_16">
+            <span class="md-nav__icon md-icon"></span>
+            Microarchitecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microarchitecture/sub1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sub-module 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microarchitecture/sub2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sub-module 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+
+    <a href="../../assets/Hardware Documentation Template.pdf" title="Generate pdf" class="md-content__button md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5v1m5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5v3m4-3H17v1h1.5V13H17v2h-1.5V9h3v1.5m-6.5 0h1v3h-1v-3m-5 0h1v1H7v-1Z"/></svg>
+    </a>
+
+
+
+                  
+
+  
+  
+
+
+<h1 id="clock-domains">Clock Domains</h1>
+<p>This section provides a detailed overview of the clock domains used in the design. For each clock, indicate its nominal frequency and the supported dynamic range. Include the same top-level block diagram as before, but this time annotate it to show which submodules are in each clock domain. Clock domain crossings in the data path should be explicitly drawn and encapsulated within one or more submodules. For clocks used for "backbone" functions spanning many submodules (e.g., a CSR bus in its own clock domain), indicate this clearly and refer to another document or appropriate section for details <a href="../references/#ref1">[1]</a>.</p>
+<h2 id="clock-domain-table">Clock Domain Table</h2>
+<table>
+<thead>
+<tr>
+<th>Clock Domain</th>
+<th>Nominal Frequency</th>
+<th>Supported Dynamic Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clock Domain 1</td>
+<td>XX MHz</td>
+<td>YY MHz - ZZ MHz</td>
+</tr>
+<tr>
+<td>Clock Domain 2</td>
+<td>AA MHz</td>
+<td>BB MHz - CC MHz</td>
+</tr>
+<tr>
+<td>Clock Domain 3</td>
+<td>DD MHz</td>
+<td>EE MHz - FF MHz</td>
+</tr>
+</tbody>
+</table>
+<h2 id="annotated-block-diagram">Annotated Block Diagram</h2>
+<div class="mxgraph" style="max-width:100%;border:1px solid transparent;"
+    data-mxgraph="{&quot;highlight&quot;:&quot;#33FFFF&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile&gt;&lt;diagram id=\&quot;hPD14SkwtZDkbTMTvTvp\&quot; name=\&quot;Page-1\&quot;&gt;&lt;mxGraphModel dx=\&quot;1836\&quot; dy=\&quot;1535\&quot; grid=\&quot;0\&quot; gridSize=\&quot;1\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;1\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;850\&quot; pageHeight=\&quot;1100\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;&gt;&lt;root&gt;&lt;mxCell id=\&quot;0\&quot;/&gt;&lt;mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot;/&gt;&lt;mxCell id=\&quot;13\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;endFill=0;bendable=1;noJump=0;flowAnimation=0;ignoreEdge=0;orthogonalLoop=0;orthogonal=0;enumerate=0;comic=0;arcSize=0;startFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=40;exitDy=10;exitPerimeter=0;strokeColor=#33FFFF;\&quot; parent=\&quot;1\&quot; source=\&quot;19\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-78\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;-700\&quot; y=\&quot;-430\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;mxPoint x=\&quot;-300\&quot; y=\&quot;-510\&quot; as=\&quot;targetPoint\&quot;/&gt;&lt;Array as=\&quot;points\&quot;&gt;&lt;mxPoint x=\&quot;-350\&quot; y=\&quot;-430\&quot;/&gt;&lt;mxPoint x=\&quot;-350\&quot; y=\&quot;-501\&quot;/&gt;&lt;mxPoint x=\&quot;-276\&quot; y=\&quot;-501\&quot;/&gt;&lt;/Array&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;14\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;endFill=0;bendable=1;noJump=0;flowAnimation=0;ignoreEdge=0;orthogonalLoop=0;orthogonal=0;enumerate=0;comic=0;arcSize=0;startFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#33FFFF;\&quot; parent=\&quot;1\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-55\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;-650\&quot; y=\&quot;-430\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;mxPoint x=\&quot;-620\&quot; y=\&quot;-540\&quot; as=\&quot;targetPoint\&quot;/&gt;&lt;Array as=\&quot;points\&quot;&gt;&lt;mxPoint x=\&quot;-650\&quot; y=\&quot;-539\&quot;/&gt;&lt;/Array&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;19\&quot; value=\&quot;CLK\&quot; style=\&quot;externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;comic=0;sketch=0;strokeColor=#33FFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;-740\&quot; y=\&quot;-440\&quot; width=\&quot;40\&quot; height=\&quot;20\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;23\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;comic=0;html=1;exitX=0;exitY=0;exitDx=20;exitDy=10;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startFill=1;endArrow=none;endFill=0;\&quot; parent=\&quot;1\&quot; source=\&quot;20\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-43\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;20\&quot; value=\&quot;RST1\&quot; style=\&quot;externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;comic=0;sketch=0;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;-740\&quot; y=\&quot;-590\&quot; width=\&quot;40\&quot; height=\&quot;20\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-37\&quot; value=\&quot;0\&quot; style=\&quot;shape=offPageConnector;html=1;rotation=0;direction=north;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;-631.5\&quot; y=\&quot;-630.5\&quot; width=\&quot;22\&quot; height=\&quot;19\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-41\&quot; value=\&quot;0\&quot; style=\&quot;shape=offPageConnector;html=1;rotation=0;direction=north;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;-631.4\&quot; y=\&quot;-677\&quot; width=\&quot;22\&quot; height=\&quot;19\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;UserObject label=\&quot;\&quot; link=\&quot;http://127.0.0.1:8000/block/microarchitecture/sub1/\&quot; id=\&quot;xuoFPVKf5IApUfL9so8E-73\&quot;&gt;&lt;mxCell style=\&quot;group\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot; connectable=\&quot;0\&quot;&gt;&lt;mxGeometry x=\&quot;-608.91\&quot; y=\&quot;-700\&quot; width=\&quot;215.9099999999999\&quot; height=\&quot;220\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;/UserObject&gt;&lt;UserObject label=\&quot;Submodule 1\&quot; link=\&quot;http://127.0.0.1:8000/block/microarchitecture/sub1/\&quot; id=\&quot;2\&quot;&gt;&lt;mxCell style=\&quot;externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=0;left=0;right=0;bottom=0;top=0;type=none;treeFolding=0;comic=0;enumerate=0;moveCells=0;metaEdit=0;backgroundOutline=0;snapToPoint=0;noLabel=0;rightArr=output%201%3Ao,output%202%3Ao;type_size=30;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-73\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;19.909999999999968\&quot; width=\&quot;180\&quot; height=\&quot;220\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;/UserObject&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-45\&quot; value=\&quot;input 1\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; parent=\&quot;2\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry y=\&quot;25.75\&quot; width=\&quot;41\&quot; height=\&quot;13.5\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-53\&quot; value=\&quot;input 2\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; parent=\&quot;2\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry y=\&quot;72.25\&quot; width=\&quot;42\&quot; height=\&quot;13.5\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-55\&quot; value=\&quot;\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;fillColor=#33FFFF;\&quot; parent=\&quot;2\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry y=\&quot;152\&quot; width=\&quot;12\&quot; height=\&quot;17\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-56\&quot; value=\&quot;reset\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; parent=\&quot;2\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry y=\&quot;113\&quot; width=\&quot;29\&quot; height=\&quot;13.5\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-72\&quot; value=\&quot;clk\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; parent=\&quot;2\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;12\&quot; y=\&quot;153.75\&quot; width=\&quot;29\&quot; height=\&quot;13.5\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-98\&quot; value=\&quot;output 1\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; parent=\&quot;2\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;130\&quot; y=\&quot;63\&quot; width=\&quot;50\&quot; height=\&quot;13.5\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-99\&quot; value=\&quot;output 2\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; parent=\&quot;2\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;131\&quot; y=\&quot;132\&quot; width=\&quot;49\&quot; height=\&quot;13.5\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-32\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;comic=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startFill=1;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-73\&quot; source=\&quot;xuoFPVKf5IApUfL9so8E-37\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-34\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;9.949999999999932\&quot; y=\&quot;79\&quot; as=\&quot;targetPoint\&quot;/&gt;&lt;mxPoint x=\&quot;-1.0500000000000682\&quot; y=\&quot;79\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-34\&quot; value=\&quot;\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;fillColor=#000000;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-73\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;6.949999999999932\&quot; y=\&quot;74\&quot; width=\&quot;8.96\&quot; height=\&quot;10\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-35\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1.435;entryY=0.508;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-73\&quot; source=\&quot;xuoFPVKf5IApUfL9so8E-34\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-34\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-38\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;comic=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startFill=1;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-73\&quot; source=\&quot;xuoFPVKf5IApUfL9so8E-41\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-39\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;10.049999999999955\&quot; y=\&quot;32.5\&quot; as=\&quot;targetPoint\&quot;/&gt;&lt;mxPoint x=\&quot;-0.9500000000000455\&quot; y=\&quot;32.5\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-39\&quot; value=\&quot;\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;fillColor=#000000;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-73\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;7.0499999999999545\&quot; y=\&quot;27.5\&quot; width=\&quot;8.96\&quot; height=\&quot;10\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-40\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1.435;entryY=0.508;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-73\&quot; source=\&quot;xuoFPVKf5IApUfL9so8E-39\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-39\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-42\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;comic=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startFill=1;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-73\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-43\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;10.039999999999964\&quot; y=\&quot;120\&quot; as=\&quot;targetPoint\&quot;/&gt;&lt;mxPoint y=\&quot;120\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-43\&quot; value=\&quot;\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;fillColor=#000000;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-73\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;7.039999999999964\&quot; y=\&quot;115\&quot; width=\&quot;8.96\&quot; height=\&quot;10\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-44\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1.435;entryY=0.508;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-73\&quot; source=\&quot;xuoFPVKf5IApUfL9so8E-43\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-43\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-57\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;comic=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startFill=1;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-73\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-58\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;209.94999999999993\&quot; y=\&quot;70\&quot; as=\&quot;targetPoint\&quot;/&gt;&lt;mxPoint x=\&quot;199.90999999999997\&quot; y=\&quot;70\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-58\&quot; value=\&quot;\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;fillColor=#000000;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-73\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;206.94999999999993\&quot; y=\&quot;65\&quot; width=\&quot;8.96\&quot; height=\&quot;10\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-60\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;comic=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startFill=1;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-73\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-61\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;209.94999999999993\&quot; y=\&quot;140\&quot; as=\&quot;targetPoint\&quot;/&gt;&lt;mxPoint x=\&quot;199.90999999999997\&quot; y=\&quot;140\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-61\&quot; value=\&quot;\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;fillColor=#000000;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-73\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;206.94999999999993\&quot; y=\&quot;135\&quot; width=\&quot;8.96\&quot; height=\&quot;10\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;UserObject label=\&quot;\&quot; link=\&quot;http://127.0.0.1:8000/block/microarchitecture/sub1/\&quot; id=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot;&gt;&lt;mxCell style=\&quot;group\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot; connectable=\&quot;0\&quot;&gt;&lt;mxGeometry x=\&quot;-295.99999999999994\&quot; y=\&quot;-662\&quot; width=\&quot;215.9099999999999\&quot; height=\&quot;220\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;/UserObject&gt;&lt;UserObject label=\&quot;Submodule 2\&quot; link=\&quot;http://127.0.0.1:8000/block/microarchitecture/sub1/\&quot; id=\&quot;xuoFPVKf5IApUfL9so8E-75\&quot;&gt;&lt;mxCell style=\&quot;externalPins=1;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=1;left=0;right=0;bottom=0;top=0;type=none;treeFolding=0;comic=0;enumerate=0;moveCells=0;metaEdit=0;backgroundOutline=0;snapToPoint=0;noLabel=0;rightArr=output%201%3Ao,output%202%3Ao;rightRot=180;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;19.909999999999968\&quot; width=\&quot;180\&quot; height=\&quot;220\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;/UserObject&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-76\&quot; value=\&quot;input 1\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-75\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry y=\&quot;25.75\&quot; width=\&quot;41\&quot; height=\&quot;13.5\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-77\&quot; value=\&quot;input 2\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-75\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry y=\&quot;72.25\&quot; width=\&quot;42\&quot; height=\&quot;13.5\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-78\&quot; value=\&quot;\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;fillColor=#33FFFF;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-75\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry y=\&quot;152\&quot; width=\&quot;12\&quot; height=\&quot;17\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-79\&quot; value=\&quot;reset\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-75\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry y=\&quot;113\&quot; width=\&quot;29\&quot; height=\&quot;13.5\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-80\&quot; value=\&quot;clk\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-75\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;12\&quot; y=\&quot;153.75\&quot; width=\&quot;29\&quot; height=\&quot;13.5\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-101\&quot; value=\&quot;output 2\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-75\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;133\&quot; y=\&quot;133\&quot; width=\&quot;47\&quot; height=\&quot;13.5\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-81\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;comic=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startFill=1;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-82\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;9.949999999999932\&quot; y=\&quot;79\&quot; as=\&quot;targetPoint\&quot;/&gt;&lt;mxPoint x=\&quot;-1.0500000000000682\&quot; y=\&quot;79\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-82\&quot; value=\&quot;\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;fillColor=#000000;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;6.949999999999932\&quot; y=\&quot;74\&quot; width=\&quot;8.96\&quot; height=\&quot;10\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-83\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1.435;entryY=0.508;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; source=\&quot;xuoFPVKf5IApUfL9so8E-82\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-82\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-84\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;comic=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startFill=1;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-85\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;10.049999999999955\&quot; y=\&quot;32.5\&quot; as=\&quot;targetPoint\&quot;/&gt;&lt;mxPoint x=\&quot;-0.9500000000000455\&quot; y=\&quot;32.5\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-85\&quot; value=\&quot;\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;fillColor=#000000;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;7.0499999999999545\&quot; y=\&quot;27.5\&quot; width=\&quot;8.96\&quot; height=\&quot;10\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-86\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1.435;entryY=0.508;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; source=\&quot;xuoFPVKf5IApUfL9so8E-85\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-85\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-87\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;comic=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startFill=1;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-88\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;10.039999999999964\&quot; y=\&quot;120\&quot; as=\&quot;targetPoint\&quot;/&gt;&lt;mxPoint y=\&quot;120\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-88\&quot; value=\&quot;\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;fillColor=#000000;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;7.039999999999964\&quot; y=\&quot;115\&quot; width=\&quot;8.96\&quot; height=\&quot;10\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-89\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1.435;entryY=0.508;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; source=\&quot;xuoFPVKf5IApUfL9so8E-88\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-88\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-90\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;comic=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startFill=1;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-91\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;209.94999999999993\&quot; y=\&quot;70\&quot; as=\&quot;targetPoint\&quot;/&gt;&lt;mxPoint x=\&quot;199.90999999999997\&quot; y=\&quot;70\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-91\&quot; value=\&quot;\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;fillColor=#000000;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;206.94999999999993\&quot; y=\&quot;65\&quot; width=\&quot;8.96\&quot; height=\&quot;10\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-92\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1.435;entryY=0.508;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; source=\&quot;xuoFPVKf5IApUfL9so8E-91\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-91\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-93\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;comic=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startFill=1;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-94\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;209.94999999999993\&quot; y=\&quot;140\&quot; as=\&quot;targetPoint\&quot;/&gt;&lt;mxPoint x=\&quot;199.90999999999997\&quot; y=\&quot;140\&quot; as=\&quot;sourcePoint\&quot;/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-94\&quot; value=\&quot;\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;fillColor=#000000;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;206.94999999999993\&quot; y=\&quot;135\&quot; width=\&quot;8.96\&quot; height=\&quot;10\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-95\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1.435;entryY=0.508;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; source=\&quot;xuoFPVKf5IApUfL9so8E-94\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-94\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-100\&quot; value=\&quot;output 1\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; parent=\&quot;xuoFPVKf5IApUfL9so8E-74\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;151\&quot; y=\&quot;63.25\&quot; width=\&quot;48.91\&quot; height=\&quot;13.5\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-59\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;\&quot; parent=\&quot;1\&quot; source=\&quot;xuoFPVKf5IApUfL9so8E-58\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-85\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-62\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;\&quot; parent=\&quot;1\&quot; source=\&quot;xuoFPVKf5IApUfL9so8E-61\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-82\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-96\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;comic=0;html=1;exitX=0;exitY=0;exitDx=20;exitDy=10;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startFill=1;endArrow=none;endFill=0;arcSize=0;\&quot; parent=\&quot;1\&quot; source=\&quot;xuoFPVKf5IApUfL9so8E-97\&quot; target=\&quot;xuoFPVKf5IApUfL9so8E-88\&quot; edge=\&quot;1\&quot;&gt;&lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;&lt;mxPoint x=\&quot;-288.96000000000004\&quot; y=\&quot;-544\&quot; as=\&quot;targetPoint\&quot;/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;mxCell id=\&quot;xuoFPVKf5IApUfL9so8E-97\&quot; value=\&quot;RST2\&quot; style=\&quot;externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;comic=0;sketch=0;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;&gt;&lt;mxGeometry x=\&quot;-369\&quot; y=\&quot;-539\&quot; width=\&quot;40\&quot; height=\&quot;20\&quot; as=\&quot;geometry\&quot;/&gt;&lt;/mxCell&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}">
+</div>
+<script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../registers/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Registers">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Registers
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../resets/" class="md-footer__link md-footer__link--next" aria-label="Next: Reset Domains">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Reset Domains
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/OpenCEHardware"  target="_blank" rel="noopener">OpenCEHardware</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.tabs.link", "content.code.annotation", "content.code.copy", "header.autohide", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../js/print-site.js"></script>
+      
+    
+  </body>
+</html>
