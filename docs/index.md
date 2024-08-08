@@ -36,6 +36,7 @@ The template is organized into the following sections, each explaining its purpo
 - :fontawesome-solid-flag: [Arbitration](block/arbitration.md): Arbitration mechanisms for access to shared resources.
 - :fontawesome-solid-bug: [Debugging](block/debugging.md): Techniques and tools for system debugging.
 - :fontawesome-solid-table: [Synthesis](block/synthesis.md): Summary and results of the design synthesis.
+- :fontawesome-solid-table: [Verification](block/verification.md): Test environments, verification and testbenches applied to the system.
 - **Microarchitecture:**
     - :fontawesome-solid-cube: [Sub-module 1](block/microarchitecture/sub1.md): Details of the first sub-module of the microarchitecture.
     - :fontawesome-solid-cube: [Sub-module 2](block/microarchitecture/sub2.md): Details of the second sub-module of the microarchitecture.

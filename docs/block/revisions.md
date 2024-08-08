@@ -4,6 +4,7 @@ Continually maintain the following table of major and minor revisions of the spe
 
 In this case, the example table corresponds to the actual revisions of this document.
 
-| Date (YYYY-MM-DD) | Version | Description of Changes       | Author               |
-|-------------------|---------|------------------------------|----------------------|
-| 2024-08-07        | `1.0`   | Document creation.           | Alejandro Chavarría  |
+| Date (YYYY-MM-DD) | Version   | Description of Changes         | Author               |
+|-------------------|-----------|--------------------------------|----------------------|
+| 2024-08-07        | `1.0.0`   | Document creation.             | Alejandro Chavarría  |
+| 2024-08-08        | `1.0.1`   | Fixed diagram and navigation.  | Alejandro Chavarría  |
